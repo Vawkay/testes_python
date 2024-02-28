@@ -1,0 +1,76 @@
+CODIGOCENTROCUSTO,DESCRICAO,CENTROCUSTO,CENTROCUSTO_COD
+1.3,Padaria TIME MIS,TIME MIS,1
+1.1,Comercial TIME MIS,TIME MIS,1
+1.2,Adm TIME MIS,TIME MIS,1
+1.4,Acougue TIME MIS,TIME MIS,1
+1,TIME MIS,TIME MIS,1
+2.1,Comercial MIS CLIENTE,MIS CLIENTE,2
+2.2,Administravio MIS CLIENTE,MIS CLIENTE,2
+2.3,Padaria MIS CLIENTE,MIS CLIENTE,2
+2.4,Acougue MIS CLIENTE,MIS CLIENTE,2
+2,MIS CLIENTE,MIS CLIENTE,2
+3.1,Comercial NEO SERVICE,NEO SERVICE,3
+3.2,Logistica Externa NEO SERVICE,NEO SERVICE,3
+3.3,Logistica Interna NEO SERVICE,NEO SERVICE,3
+3,CD NEO SERVICE,NEO SERVICE,3
+3.1.2001,Atacado,NEO SERVICE,3
+3.1.2002,Distribuição,NEO SERVICE,3
+3.1.2003,Unilever,NEO SERVICE,3
+3.1.2004,Colgate,NEO SERVICE,3
+3.1.2005,Pasta 5,NEO SERVICE,3
+3.4,Adm NEO SERVICE,NEO SERVICE,3
+4,Fraga Maia,FRAGA MAIA,4
+4.1,Comercial Fraga Maia,FRAGA MAIA,4
+4.2,Administrativo Fraga Maia,FRAGA MAIA,4
+4.3,Padaria Fraga Maia,FRAGA MAIA,4
+4.4,Acougue Fraga Maia,FRAGA MAIA,4
+5,Artemia Pires,ARTEMIA,5
+5.1,Comercial Artemia,ARTEMIA,5
+5.2,Adm Artemia,ARTEMIA,5
+5.3,Padaria Artemia,ARTEMIA,5
+5.4,Acougue Artemia,ARTEMIA,5
+11,Tome de Souza,TOME,11
+11.1,Comercial Tome de Souza,TOME,11
+11.2,Adm Tome de Souza,TOME,11
+11.3,Padaria Tome de Souza,TOME,11
+11.4,Acougue Tome de Souza,TOME,11
+14.1,Express Artemia Comercial,EXPRESS BPO,14
+14,Express Artemia,EXPRESS BPO,14
+14.2,Administrativo Express Artemia,EXPRESS BPO,14
+14.3,Padaria Express Artemia,EXPRESS BPO,14
+14.4,Acougue Express Artemia,EXPRESS BPO,14
+13,Calamar,CALAMAR,13
+13.1,Comercial Calamar,CALAMAR,13
+13.2,Adm Calamar,CALAMAR,13
+13.4,Acougue Calamar,CALAMAR,13
+13.3,Padaria Calamar,CALAMAR,13
+15,Santo Estevao,MIS IN BPO,15
+15.1,Santo Estevao Comercial,MIS IN BPO,15
+15.2,Administrativo Santo Estevao,MIS IN BPO,15
+15.3,Padaria Santo Estevao,MIS IN BPO,15
+15.4,Acougue Santo Estevao,MIS IN BPO,15
+20,DIRETORIA BPO Geral,DIRETORIA BPO,20
+20.1,Recursos Humanos,DIRETORIA BPO,20
+20.2,Financeiro,DIRETORIA BPO,20
+20.3,Tecnologia da Informação,DIRETORIA BPO,20
+20.4,Contabil,DIRETORIA BPO,20
+20.5,Juridico,DIRETORIA BPO,20
+20.6,Diretoria,DIRETORIA BPO,20
+20.6.2001,Diretor 01 MP,DIRETORIA BPO,20
+20.6.2002,Diretor ME,DIRETORIA BPO,20
+20.6.2003,Diretor 03 C,DIRETORIA BPO,20
+20.6.2004,Diretor 04 R,DIRETORIA BPO,20
+20.6.2005,Diretor 05 A,DIRETORIA BPO,20
+98,Despesas Reembolsaveis,REEMBOLSAVEIS,98
+98.1,Reembolsaveis - Fornecedor,REEMBOLSAVEIS,98
+98.2,Reembolsaveis - Colaborador,REEMBOLSAVEIS,98
+98.3,Reembosaveis - Tributos,REEMBOLSAVEIS,98
+99,Despesas Que Não Compoe a DRE,NÃO DRE,99
+30,FISTnegocio,FIST,30
+30.1,Fazenda Coracao de Maria,FIST,30
+30.2,Chacara D.Mariazinha,FIST,30
+21,Rateio Varejo,RATEIO VAREJO,21
+21.1,Compras Varejo,RATEIO VAREJO,21
+21.2,Financeiro Varejo,RATEIO VAREJO,21
+21.3,Marketing Varejo,RATEIO VAREJO,21
+21.4,Central de Produção Padaria,RATEIO VAREJO,21
