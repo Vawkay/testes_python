@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/SQL/Q2 - Procedure simulando sist. Vendas.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/SQL/Q2 - Tabelas de Vendas e Produtos.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/SQL/Q3 - Tabela de POSTS otimizada.sql" dialect="TSQL" />
+  </component>
+</project>

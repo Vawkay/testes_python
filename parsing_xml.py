@@ -2,12 +2,14 @@ import os
 import pandas as pd
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from babel.dates import format_date, parse_date, get_day_names, get_month_names
 
 
 class ParseXml:
     """
     Classe para analisar um arquivo XML e extrair os dados da tabela.
     """
+
     def __init__(self):
         self.folder = self.prepara_folder()
         self.xml_file = self.encontra_arquivo()
@@ -68,6 +70,33 @@ class ParseXml:
 
             # Cria um DataFrame a partir da lista de dicionários
             dataframe = pd.DataFrame(data)
+
+            def convert_date(date_str):
+                try:
+                    # Divida a string usando espaços como separadores
+                    partes = date_str.split()
+
+                    # Extrai os elementos relevantes
+                    dia = int(partes[-5])
+                    mes = partes[-3].lower()  # Obtém o nome do mês em minúsculas
+                    ano = int(partes[-1])
+
+                    # Mapeia o nome do mês para o número do mês
+                    meses = {'janeiro': 1, 'fevereiro': 2, 'março': 3, 'abril': 4,
+                             'maio': 5, 'junho': 6, 'julho': 7, 'agosto': 8,
+                             'setembro': 9, 'outubro': 10, 'novembro': 11, 'dezembro': 12}
+                    mes_numero = meses[mes]
+
+                    # Constrói o objeto datetime
+                    data_formatada = datetime(ano, mes_numero, dia)
+                    return data_formatada
+
+                except (ValueError, IndexError, KeyError):
+                    # Se houver algum erro, retorna a data original
+                    return date_str
+
+            dataframe['ULTDATA'] = dataframe['ULTDATA'].apply(convert_date)
+
             return dataframe
         except Exception as e:
             print(f"Erro ao analisar o XML: {e}")
@@ -81,7 +110,7 @@ class ParseXml:
         try:
             # Salvar o DataFrame em um arquivo CSV
             file_path = os.path.join(self.folder, 'ORCAMENTO.csv')
-            dataframe.to_csv(file_path, index=False, encoding='ANSI', sep=';')
+            dataframe.to_csv(file_path, index=False, encoding='utf-8', sep=';')
             print(f"Arquivo salvo em: {file_path}")
         except Exception as e:
             print(f"Erro ao salvar o arquivo: {e}")

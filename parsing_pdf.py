@@ -78,7 +78,7 @@ class ParsePdf:
         try:
             # Salvar o DataFrame em um arquivo CSV
             file_path = os.path.join(self.folder, 'CENTRO_DE_CUSTO.csv')
-            dataframe.to_csv(file_path, index=False, encoding='ANSI', sep=';')
+            dataframe.to_csv(file_path, index=False, encoding='utf-8', sep=';')
             print(f"Arquivo salvo em: {file_path}")
         except Exception as e:
             print(f"Erro ao salvar o arquivo: {e}")

@@ -14,10 +14,11 @@ class ConsumeApiData:
     """
     Classe para consumir a API e salvar os dados em um arquivo CSV.
     """
+
     def __init__(self):
         self.downloads = self.prepara_folder()
         self.token = os.getenv('API_TESTE_TOKEN')
-        self.ultima_atualizacao = self.verifica_data()
+        self.api = "https://sheetdb.io/api/v1/xlc7njblhysnw"
 
     @staticmethod
     def prepara_folder():
@@ -49,9 +50,11 @@ class ConsumeApiData:
         logging.info('Data da última atualização verificada.')
         return ultima_atualizacao
 
-    def consume_api(self):
+    def test_api(self):
         """
+        API de teste com parâmetros supostos para consumo.
         Consume a API de acordo com parâmetros e salva os dados em um arquivo CSV.
+        É só um modelo, não funciona porque os parâmetros são fictícios.
         """
         page = 1
         lista_dataframes = []
@@ -60,7 +63,7 @@ class ConsumeApiData:
             # Faz uma solicitação GET à API com o token de acesso no cabeçalho
             # Parâmetros de paginação e última atualização
             response = requests.get(
-                f'https://sheetdb.io/api/v1/xlc7njblhysnw?page={page}&search?data=>{self.ultima_atualizacao}',
+                f'https://sheetdb.io/api/v1/xlc7njblhysnw?page={page}&search?data=>{self.verifica_data()}',
                 headers=headers)
             logging.info(f'Solicitação GET feita à API. Página: {page}')
 
@@ -88,12 +91,50 @@ class ConsumeApiData:
 
         df = pd.concat(lista_dataframes, ignore_index=True)
         df['Atualizado_em'] = datetime.now()
-        # Escreve o DataFrame em um arquivo CSV
-        df.to_csv(os.path.join(self.downloads, f'CONTAS.csv'), index=False)
-        logging.info('Dados salvos em um arquivo CSV.')
+        # Salva o DataFrame em um arquivo CSV
+        self.salvar_arquivo(df)
+
+    def salvar_arquivo(self, dataframe):
+        """
+        Salva o DataFrame em um arquivo CSV.
+        :param dataframe: DataFrame com os dados da tabela
+        """
+        try:
+            # Salvar o DataFrame em um arquivo CSV
+            file_path = os.path.join(self.downloads, 'CONTAS.csv')
+            dataframe.to_csv(file_path, index=False, encoding='utf-8', sep=';')
+            logging.info('Dados salvos em um arquivo CSV.')
+        except Exception as e:
+            logging.error(f"Erro ao salvar o arquivo: {e}")
+
+    def real_api(self):
+        """
+        API real sem parâmetros para consumo.
+        """
+        response = requests.get(self.api)
+        logging.info(f'Solicitação GET feita à API.')
+        # Verifica se a resposta da requisição foi bem-sucedida
+        try:
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as e:
+            logging.error(f"Erro: {str(e)} - {response.text}")
+            return
+        # Converte a resposta em um dicionário Python
+        data = response.json()
+        # Verifica se a resposta está vazia
+        if not data:
+            logging.info('A resposta da API está vazia.')
+            return
+        # Converte o dicionário em um DataFrame do pandas
+        df = pd.DataFrame(data)
+        # Salva o DataFrame em um arquivo CSV
+        self.salvar_arquivo(df)
 
 
 if __name__ == '__main__':
     api = ConsumeApiData()
-    api.consume_api()
+    # API de teste com supostos parâmetros
+    # api.test_api()
+    # API real sem parâmetros
+    api.real_api()
     logging.info('Script concluído.')
